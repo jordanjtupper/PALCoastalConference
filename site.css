@@ -1,0 +1,16 @@
+
+const nav=document.getElementById('nav');
+const menu=document.getElementById('menu');
+if(menu){menu.addEventListener('click',()=>{nav.classList.toggle('open')})}
+document.querySelectorAll('#nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+const WIX_REGISTRATION_URL = "";
+document.querySelectorAll('.register').forEach(a=>{
+  if(WIX_REGISTRATION_URL){a.href=WIX_REGISTRATION_URL;a.target='_blank';a.rel='noopener'}
+});
+document.getElementById('registrationForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const m=document.getElementById('formMessage');
+  if(WIX_REGISTRATION_URL){window.open(WIX_REGISTRATION_URL,'_blank','noopener')}
+  else{m.textContent='Prototype only: connect this button to Wix Events / Wix Payments when the live Wix checkout is ready.'}
+});
